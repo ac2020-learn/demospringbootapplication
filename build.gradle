@@ -33,11 +33,11 @@ jib {
   	}
   to {
     image = 'us-docker.pkg.dev/myproject40904/gcp-training-repo/demospringbootapplication'
-/*    auth {
+/* */   auth {
       username = '_json_key'
-      password = file('keyfile.json').text
+      password = file('tekton-ci-cd-sa-myproject4090.json').text
     }
-*/
+
 /*
     auth {
       username = 'oauth2accesstoken'
