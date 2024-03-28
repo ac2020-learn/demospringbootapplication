@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.4'
 	id 'io.spring.dependency-management' version '1.1.4'
+	id 'com.google.cloud.tools.jib' version '3.4.1'
 }
 
 group = 'com.example'
@@ -18,8 +19,33 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//implementation 'com.google.cloud.tools:jib-gradle-plugin:3.4.1'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jib {
+	from {
+    	// image = 'openjdk:alpine'
+    	 image = 'eclipse-temurin:17.0.10_7-jre-alpine'
+  	}
+  to {
+    image = 'us-docker.pkg.dev/myproject40904/gcp-training-repo/demospringbootapplication'
+/*    auth {
+      username = '_json_key'
+      password = file('keyfile.json').text
+    }
+*/
+/*
+    auth {
+      username = 'oauth2accesstoken'
+      password = 'gcloud auth print-access-token'.execute().text.trim()
+    }
+   */
+  }
+
+}
+
+// jib.to.image = 'us-docker.pkg.dev/myproject40904/gcp-training-repo/demospringbootapplication'
