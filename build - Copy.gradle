@@ -32,11 +32,10 @@ jib {
     	 image = 'eclipse-temurin:17.0.10_7-jre-alpine'
   	}
   to {
-    //image = 'us-docker.pkg.dev/myproject40904/gcp-training-repo/demospringbootapplication'
-    image = 'us-docker.pkg.dev/	muthu-training-2024/gcp-training-repo/demospringbootapplication'
+    image = 'us-docker.pkg.dev/myproject40904/gcp-training-repo/demospringbootapplication'
 /* */   auth {
       username = '_json_key'
-      password = file('tekton-ci-cd-sa-muthu-training-2024.json').text
+      password = file('tekton-ci-cd-sa-myproject4090.json').text
     }
 
 /*
